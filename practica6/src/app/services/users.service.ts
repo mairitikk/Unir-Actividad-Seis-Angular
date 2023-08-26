@@ -7,7 +7,7 @@ import { User } from '../interfaces/user.interface';
 })
 export class UsersService {
   private arrUser: User[] = USER;
-  
+  private id: number= this.arrUser.length +1;
   constructor() {}
 
   getAll(): User[] {
@@ -17,4 +17,14 @@ export class UsersService {
   getById(id: number): User | undefined {
     return this.arrUser.find((user) => user.id === id);
   }
+  insert(user: User){
+    let newUser = user;
+    newUser.id = this.id
+    this.arrUser.push(newUser);
+    this.id++
+    return 'ok'
+
+  }
+  
+  // vaciar formulario this.userForm.reset();
 }

@@ -8,8 +8,8 @@
 </figure>
     <div class="card-body">
       <h5 class="card-title">{{myUser.first_name}} {{myUser.last_name}} </h5>
-     <img width="40px" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt="">
-     <img width="40px" src="https://cdn-icons-png.flaticon.com/512/875/875100.png" alt="">
+     <img width="40px" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt="" [routerLink]="['/user', myUser.id]">
+     <img width="40px" src="https://cdn-icons-png.flaticon.com/512/875/875100.png" alt="" [routerLink]="['/updateuser', myUser.id]">
      <img width="40px" src="https://cdn-icons-png.flaticon.com/512/2984/2984959.png" alt="">
      
     </div>
