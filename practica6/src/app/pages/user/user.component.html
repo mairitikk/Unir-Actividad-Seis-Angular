@@ -1,1 +1,32 @@
-<p>user works!</p>
+<section class="container">
+    <div class="row">
+       
+        <figure class="col-12 col-md-4">
+            <img 
+              [src]="user.image"
+              class="img-fluif w-75 p-3"
+              [alt]="user.username"
+            />
+        </figure>
+
+        <div class="col-12 col-md-8 ">
+            <h4 class="display-6 mt-3">{{user.first_name}}</h4>
+            <h4 class="display-6">{{user.last_name}} </h4>
+            <p><strong>Username:</strong> {{user.username}} </p>
+            <p><strong>Email:</strong> {{user.email}} </p>
+            <button type="button" class="btn btn-secondary btn-sm mx-1">
+            Eliminar
+          </button>
+         
+          <button type="button" class="btn btn-secondary btn-sm mx-1" [routerLink]="['/updateuser', user.id]">
+           Actualizar
+            
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm mx-1" [routerLink]="['']">
+          Volver al listado
+          
+        </button>
+          
+        </div>
+    </div>
+</section>

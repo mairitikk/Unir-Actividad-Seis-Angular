@@ -5,13 +5,13 @@ import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-usersServices = inject(UsersService);
-myUsers: User[] = [];
+  usersServices = inject(UsersService);
+  myUsers: User[] = [];
 
-ngOnInit(): void {
-this.myUsers = this.usersServices.getAll();
-}
+  ngOnInit(): void {
+    this.myUsers = this.usersServices.getAll();
+  }
 }
