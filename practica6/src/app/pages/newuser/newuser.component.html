@@ -1,40 +1,46 @@
-<h2>NEW USER</h2>
+<h2 class="ms-5">{{titulo}}</h2>
 <hr>
 <section class="container mt-3">
 <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
     <div class="my-2">
         <label for="first_name" class="form-label">Nombre</label>
         <input class="form-control" type="text" id="first_name" placeholder="ingresa tu nombre" formControlName="first_name">
-    
-    </div>
+    <p class="error" *ngIf="checkControl('first_name', 'required')">Campo es requerido</p>
+    <p class="error" *ngIf="checkControl('first_name', 'minlength')">La longitud minima es de 3 caracteres</p>    
+</div>
     <div class="my-2">
         <label for="last_name" class="form-label">Apellido</label>
         <input class="form-control" type="text" id="last_name" placeholder="ingresa tu apellido" formControlName="last_name">
-    
+        <p class="error" *ngIf="checkControl('last_name', 'required')">Campo es requerido</p>
+        <p class="error" *ngIf="checkControl('last_name', 'minlength')">La longitud minima es de 3 caracteres</p>
     </div>
     <div class="my-2">
         <label for="email" class="form-label">Email</label>
         
     <input class="form-control" type="text" id="email" placeholder="ingresa tu email" formControlName="email">
-    
+    <p class="error" *ngIf="checkControl('email', 'required')">Campo es requerido</p>
+    <p class="error" *ngIf="checkControl('email', 'email')">Email incorrecto</p>
     </div>
     <div class="my-2">
         <label for="username" class="form-label">Username</label>
         
     <input class="form-control" type="text" id="username" placeholder="ingresa tu username" formControlName="username">
-    
+    <p class="error" *ngIf="checkControl('username', 'required')">Campo es requerido</p>
+    <p class="error" *ngIf="checkControl('username', 'minlength')">La longitud minima es de 3 caracteres</p>
     </div>
     <div class="my-2">
         <label for="password" class="form-label">Password</label>
         
     <input class="form-control" type="password" id="password" formControlName="password">
-    
+    <p class="error" *ngIf="checkControl('password', 'required')">Campo es requerido</p>
     </div>
     <div class="my-2">
         <label for="image" class="form-label">Imagen Usario</label>
         <input class="form-control" type="text" id="image" placeholder="ingresa tu url" formControlName="image">
+        <p class="error" *ngIf="checkControl('image', 'required')">Campo es requerido</p>
        
     </div>
     
-    <input type="submit" value="Enviar" class="btn btn-danger mt-3" >
+    <input type="submit" value="Enviar" class="btn btn-danger mt-3" [disabled]="!userForm.valid">
 </form>
+
