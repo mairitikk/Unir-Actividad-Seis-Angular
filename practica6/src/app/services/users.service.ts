@@ -3,6 +3,7 @@ import { USER } from '../db/user.db';
 import { User } from '../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
+import { Pagination } from '../interfaces/pagination.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,8 @@ export class UsersService {
   
   // Asignamos valores iniciales por defecto de nuestra BD interna
   private arrUser: User[] = USER;
+
+  private pagination: Pagination= {page:0, per_page: 0, total:0, total_pages:0};;
 
   // id to control the insert of a new user in the DB
   private id: number= this.arrUser.length + 1;
@@ -45,10 +48,16 @@ export class UsersService {
     try{
       await this.getAllApi().then((response) => {
         this.arrUser = response.results;
+        this.pagination = {page:response.page, per_page:response.per_page,total:response.total, total_pages:response.total_pages};
+ 
       });
     }catch(error){
       console.log(error)
     }
+  }
+
+  getPagination(): Pagination{
+    return this.pagination;
   }
   
   // obtenemos todos los usuarios de la API
