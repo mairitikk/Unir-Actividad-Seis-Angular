@@ -1,4 +1,5 @@
 export interface User {
+    _id: string;
     id: number;
     first_name: string;
     last_name: string;
@@ -6,6 +7,4 @@ export interface User {
     email: string;
     image: string;
     password: string;
-
-
 }

@@ -4,28 +4,32 @@
   </figure>
   <div class="card-body">
     <h5 class="card-title">{{ myUser.first_name }} {{ myUser.last_name }}</h5>
-    <a class="mx-2" [routerLink]="['/user', myUser.id]">
-    <img
-      width="40px"
-      src="https://cdn-icons-png.flaticon.com/512/751/751463.png"
-      alt=""
-      
-    />
-  </a>
-  <a class="mx-2" [routerLink]="['/updateuser', myUser.id]">
-    <img
-      width="40px"
-      src="https://cdn-icons-png.flaticon.com/512/875/875100.png"
-      alt=""
-      
-    />
-  </a>
-  <a class="mx-2">
-    <img
-      width="40px"
-      src="https://cdn-icons-png.flaticon.com/512/2984/2984959.png"
-      alt=""
-    />
-  </a>
+    
+    <!--Boton ver usuario-->
+    <button class="mx-2" [routerLink]="['/user', myUser.id]">
+      <img
+        width="40px"
+        src="https://cdn-icons-png.flaticon.com/512/751/751463.png"
+        alt=""
+      />
+    </button>
+
+    <!--Boton para actualizar el usuario-->
+    <button class="mx-2" [routerLink]="['/updateuser', myUser.id]">
+      <img
+        width="40px"
+        src="https://cdn-icons-png.flaticon.com/512/875/875100.png"
+        alt=""
+      />
+    </button>
+
+    <!--Boton para eliminar el usuario-->
+    <button class="mx-2" (click)="deleteUser(myUser.id)">
+      <img
+        width="40px"
+        src="https://cdn-icons-png.flaticon.com/512/2984/2984959.png"
+        alt=""
+      />
+    </button>
   </div>
 </div>
